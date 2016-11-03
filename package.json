@@ -1,0 +1,19 @@
+{
+  "name": "games0",
+  "version": "0.0.1",
+  "description": "My First Game from Phaser",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jay Are Galinada <jayaregalinada@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.2",
+    "gulp-sourcemaps": "^2.2.0"
+  },
+  "devDependencies": {
+    "gulp-concat": "^2.6.0",
+    "gulp-util": "^3.0.7"
+  }
+}

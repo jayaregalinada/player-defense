@@ -1,0 +1,12 @@
+{ "columns":4,
+ "image":"..\/Codes\/games0\/public\/assets\/tileset.png",
+ "imageheight":64,
+ "imagewidth":256,
+ "margin":0,
+ "name":"Tileset",
+ "spacing":0,
+ "tilecount":4,
+ "tileheight":64,
+ "tilewidth":64,
+ "transparentcolor":"#ff00ff"
+}
