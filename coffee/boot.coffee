@@ -21,4 +21,5 @@ Game.Boot.prototype =
 
         @state.start 'Preload'
 
+        return
 

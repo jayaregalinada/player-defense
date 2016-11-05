@@ -55,6 +55,10 @@ _player = {
 
 $$$game = {};
 
+$$$game.mobs = {};
+
+$$$game.characters = {};
+
 Mobs = {
   Enemy: {},
   Neutral: {}

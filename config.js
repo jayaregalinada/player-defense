@@ -5,5 +5,6 @@ module.exports = {
     coffeeConf: {
         bare: true
     },
-    scriptsFileName: 'scripts.js'
+    scriptsFileName: 'scripts.js',
+    serverPort: 5000
 }

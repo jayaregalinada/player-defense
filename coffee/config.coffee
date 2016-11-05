@@ -38,6 +38,8 @@ _player =
 
 
 $$$game = {}
+$$$game.mobs = {}
+$$$game.characters = {}
 
 
 

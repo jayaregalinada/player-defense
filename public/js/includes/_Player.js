@@ -34,6 +34,13 @@ Player = (function(superClass) {
     return this;
   };
 
+  Player.prototype.loadAnimations = function(sprite) {
+    this.animations.forEach(function(val) {
+      sprite.animations.add(val.name, val.spriteIndex, val.speed, val.loop);
+    });
+    return this;
+  };
+
 
   /**
    * Create sprite from the spritesheet.

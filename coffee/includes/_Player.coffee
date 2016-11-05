@@ -23,6 +23,14 @@ class Player extends Mob
 
         @
 
+    loadAnimations: (sprite)->
+        @animations.forEach (val)->
+            sprite.animations.add val.name, val.spriteIndex, val.speed, val.loop
+
+            return
+
+        @
+
     ###*
      * Create sprite from the spritesheet.
      *

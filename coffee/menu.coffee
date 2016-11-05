@@ -1,0 +1,77 @@
+Game.Menu = (game)->
+
+Game.Menu.prototype =
+
+    preload: ($game)->
+        # @load.spritesheet 'button_play', 'assets/buttons/play.png', 200, 50
+
+        #
+        return
+
+    create: ($game)->
+        @char = {}
+        # Character KIT
+        m1 = @add.button @world.centerX - 300, @world.centerY, 'button_play', ->
+            @char.kit.animations.play 'fight'
+
+            return
+        , @, 2, 1, 0
+
+        @char.kit = $$$game.characters.kit.sprite 0, 0
+        $$$game.characters.kit.loadAnimations @char.kit
+        @char.kit.alignTo m1, Phaser.TOP_CENTER, 0, 10
+        @char.kit.animations.play 'idle'
+
+        # Character PACMAN
+        m2 = @add.button 0, 0, 'button_play', ->
+            @char.pacman.animations.play 'fight'
+
+            return
+        , @, 2, 1, 0
+        m2.alignTo m1, Phaser.RIGHT_CENTER, 16
+
+        @char.pacman = $$$game.characters.pacman.sprite 0, 0
+        $$$game.characters.pacman.loadAnimations @char.pacman
+        @char.pacman.alignTo m2, Phaser.TOP_CENTER, 0, 10
+        @char.pacman.animations.play 'idle'
+
+        # Character Wilber
+        m3 = @add.button 0, 0, 'button_play', ->
+            @char.wilber.animations.play 'fight'
+
+            return
+        , @, 2, 1, 0
+        m3.alignTo m2, Phaser.RIGHT_CENTER, 16
+
+        @char.wilber = $$$game.characters.wilber.sprite 0, 0
+        $$$game.characters.wilber.loadAnimations @char.wilber
+        @char.wilber.alignTo m3, Phaser.TOP_CENTER, 0, 10
+        @char.wilber.animations.play 'idle'
+
+
+        return
+    update: ($game)->
+
+        return
+
+    createButton: ($game, string, x, y, width, height, callback)->
+        button = $game.add.button x, y, 'button_play', callback, @, 2, 1, 0
+
+        button.anchor.setTo 0.5, 0.5
+        button.width = width
+        button.height = height
+
+        # txt = $game.add.text button.x, button.y, string,
+        #     font: '14px Courier New'
+        #     fill: '#FFF'
+        #     align: 'center'
+
+        # txt.anchor.setTo 0.5, 0.5
+
+        return
+
+    buttonClicked: ->
+        console.log 'buttonClicked'
+
+        return
+

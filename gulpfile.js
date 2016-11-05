@@ -9,14 +9,6 @@ gulp.task('test', function () {
     console.log(config.public);
 });
 
-gulp.task('vendor:js', function () {
-    return gulp.src([
-        config.vendor + '/phaser.js'
-    ])
-    .pipe(concat('vendor.js'))
-    .pipe(gulp.dest(config.public + '/js'))
-})
-
 gulp.task('coffee', ['includes', 'levels', 'mobs'], function () {
     return gulp.src([
         config.coffee + '/onload.coffee',

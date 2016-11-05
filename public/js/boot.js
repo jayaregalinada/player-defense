@@ -13,6 +13,6 @@ Game.Boot.prototype = {
     this.load.image('preloaderImg', 'assets/preloader.gif');
   },
   create: function() {
-    return this.state.start('Preload');
+    this.state.start('Preload');
   }
 };
