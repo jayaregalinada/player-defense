@@ -44,12 +44,33 @@ class Game.Menu
         char_pacman.alignIn @c2, Phaser.CENTER, 0, 0
         char_wilber.alignIn @c3, Phaser.CENTER, 0, 0
 
+        @addButtonBelow char_kit
+        @addButtonBelow char_pacman
+        @addButtonBelow char_wilber
+
+        # b1 = @add.button 0, 0, 'button_play', ->
+        #     char_kit.play 'fight', 5
+
+        #     return
+        # , @, 2, 1, 0
+        # b1.alignIn char_kit, Phaser.CENTER, 0, 65
+
         return
 
     render: ->
-        @game.debug.rectangle @container, '#ffffff', false
-        @game.debug.rectangle @c1, '#ff0000', false
-        @game.debug.rectangle @c2, '#00ff00', false
-        @game.debug.rectangle @c3, '#0000ff', false
+        # @game.debug.rectangle @container, '#ffffff', false
+        # @game.debug.rectangle @c1, '#ff0000', false
+        # @game.debug.rectangle @c2, '#00ff00', false
+        # @game.debug.rectangle @c3, '#0000ff', false
 
         return
+
+    addButtonBelow: (characterSprite)->
+        b = @add.button 0, 0, 'button_play', ->
+            characterSprite.play 'fight', 5
+
+            return
+        , @, 2, 1, 0
+        b.alignIn characterSprite, Phaser.CENTER, 0, 65
+
+        @
