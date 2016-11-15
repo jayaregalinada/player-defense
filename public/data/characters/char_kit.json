@@ -1,0 +1,39 @@
+{
+    "key": "char_kit",
+    "baseDamage": [7, 8, 9, 11, 15],
+    "baseArmor": [0, 1, 2, 3, 5],
+    "maxHealths": [50, 100, 150, 200, 300],
+    "powers": [
+        {
+            "id": 1,
+            "name": "Fire Hit",
+            "description": "Fire damage",
+            "minimum_level": 3,
+            "stats": [
+                {
+                    "type": "damage",
+                    "increase": [10, 11, 12, 15],
+                    "other": null
+                },
+                {
+                    "type": "damage_per_hit",
+                    "increase": [5, 10, 15],
+                    "other": "last:5000"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Fire Immunity",
+            "description": "Immunity to fire",
+            "minimum_level": 2,
+            "stats": [
+                {
+                    "type": "armor",
+                    "increase": [5, 7, 9, 12, 16],
+                    "other": null
+                }
+            ]
+        }
+    ]
+}
