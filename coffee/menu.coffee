@@ -1,77 +1,55 @@
-Game.Menu = (game)->
+class Game.Menu
+    constructor: (@game)->
+        @characters = {}
+        @_config = {}
+        @container = undefined
 
-Game.Menu.prototype =
-
-    preload: ($game)->
-        # @load.spritesheet 'button_play', 'assets/buttons/play.png', 200, 50
-
-        #
-        return
-
-    create: ($game)->
-        @char = {}
-        # Character KIT
-        m1 = @add.button @world.centerX - 300, @world.centerY, 'button_play', ->
-            @char.kit.animations.play 'fight'
-
-            return
-        , @, 2, 1, 0
-
-        @char.kit = $$$game.characters.kit.sprite 0, 0
-        $$$game.characters.kit.loadAnimations @char.kit
-        @char.kit.alignTo m1, Phaser.TOP_CENTER, 0, 10
-        @char.kit.animations.play 'idle'
-
-        # Character PACMAN
-        m2 = @add.button 0, 0, 'button_play', ->
-            @char.pacman.animations.play 'fight'
-
-            return
-        , @, 2, 1, 0
-        m2.alignTo m1, Phaser.RIGHT_CENTER, 16
-
-        @char.pacman = $$$game.characters.pacman.sprite 0, 0
-        $$$game.characters.pacman.loadAnimations @char.pacman
-        @char.pacman.alignTo m2, Phaser.TOP_CENTER, 0, 10
-        @char.pacman.animations.play 'idle'
-
-        # Character Wilber
-        m3 = @add.button 0, 0, 'button_play', ->
-            @char.wilber.animations.play 'fight'
-
-            return
-        , @, 2, 1, 0
-        m3.alignTo m2, Phaser.RIGHT_CENTER, 16
-
-        @char.wilber = $$$game.characters.wilber.sprite 0, 0
-        $$$game.characters.wilber.loadAnimations @char.wilber
-        @char.wilber.alignTo m3, Phaser.TOP_CENTER, 0, 10
-        @char.wilber.animations.play 'idle'
-
-
-        return
-    update: ($game)->
+    spriteCharacters: ->
+        @characters =
+            kit: @add.sprite @world.centerX, @world.centerY, 'char_kit'
 
         return
 
-    createButton: ($game, string, x, y, width, height, callback)->
-        button = $game.add.button x, y, 'button_play', callback, @, 2, 1, 0
 
-        button.anchor.setTo 0.5, 0.5
-        button.width = width
-        button.height = height
-
-        # txt = $game.add.text button.x, button.y, string,
-        #     font: '14px Courier New'
-        #     fill: '#FFF'
-        #     align: 'center'
-
-        # txt.anchor.setTo 0.5, 0.5
+    loadCharacters: ->
+        @characters =
+            kit: new Character @, 'char_kit', @world.centerX, @world.centerY
+            pacman: new Character @, 'char_pacman', @world.centerX, @world.centerY
+            wilber: new Character @, 'char_wilber', @world.centerX, @world.centerY
 
         return
 
-    buttonClicked: ->
-        console.log 'buttonClicked'
+    preload: ->
+        @_config = @cache.getJSON 'config'
+        @load.pack 'menu', @_config.assetPackPath, null, @
+        @load.pack 'characters', @_config.assetPackPath, null, @
+        @loadCharacters()
+
 
         return
 
+    create: ->
+        w = 610 * 1.5
+        h = window.innerHeight - 400
+        @container = new Phaser.Rectangle @world.centerX - (w/2), @world.centerY - (h/2), w, h
+        @c1 = new Phaser.Rectangle @container.topLeft.x, @container.topLeft.y, (w/3), h
+        @c2 = new Phaser.Rectangle @c1.topLeft.x + (w/3), @container.topLeft.y, (w/3), h
+        @c3 = new Phaser.Rectangle @c2.topLeft.x + (w/3), @container.topLeft.y, (w/3), h
+
+        char_kit = @characters.kit.create().play('idle').sprite
+        char_pacman = @characters.pacman.create().play('idle').sprite
+        char_wilber = @characters.wilber.create().play('idle').sprite
+
+        char_kit.alignIn @c1, Phaser.CENTER, 0, 0
+        char_pacman.alignIn @c2, Phaser.CENTER, 0, 0
+        char_wilber.alignIn @c3, Phaser.CENTER, 0, 0
+
+        return
+
+    render: ->
+        @game.debug.rectangle @container, '#ffffff', false
+        @game.debug.rectangle @c1, '#ff0000', false
+        @game.debug.rectangle @c2, '#00ff00', false
+        @game.debug.rectangle @c3, '#0000ff', false
+
+        return

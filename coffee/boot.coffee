@@ -1,25 +1,16 @@
-###*
- * boot.coffee
-###
-
-Game.Boot = (game)->
-
-Game.Boot.prototype =
-    init: ->
-        @input.maxPointers = 1
-
-        return
-
+class Game.Boot
+    constructor: (@game)->
 
     preload: ->
-        console.log 'Boot loading...'
-        @load.image 'preloaderImg', 'assets/preloader.gif'
+        @input.maxPointers = 1
+        @load.json 'config', 'data/config.json'
+
 
         return
 
     create: ->
+        config = @cache.getJSON 'config'
 
         @state.start 'Preload'
 
         return
-

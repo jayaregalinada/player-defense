@@ -40,10 +40,15 @@ _player =
 $$$game = {}
 $$$game.mobs = {}
 $$$game.characters = {}
+$$$game.conf = {}
 
+window.$$$game = $$$game
 
 
 Mobs = {
     Enemy: {}
     Neutral: {}
 }
+
+setConfig = (key, value)->
+    window.$$$game.conf = value

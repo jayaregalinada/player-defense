@@ -10,7 +10,8 @@ class Mob
      * @return {void}
     ###
     constructor: (@game, @name, @spriteObj)->
-        console.log 'New Mob has been loaded', @name
+
+        return
 
     loadSprite: ->
         @game.load.spritesheet @name, @spriteObj.path, @spriteObj.x, @spriteObj.y

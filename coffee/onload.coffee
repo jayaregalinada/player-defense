@@ -4,7 +4,7 @@
  * Filename: onload.coffee
 ###
 window.onload = ->
-    game = new Phaser.Game window.screen.width, window.innerHeight, Phaser.CANVAS, ''
+    game = new Phaser.Game window.screen.width, window.innerHeight, Phaser.CANVAS, 'GAME'
     # game = new Phaser.Game 960, 640, Phaser.CANVAS, ''
 
     game.state.add 'Boot', Game.Boot
