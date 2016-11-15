@@ -1,18 +1,19 @@
-
-/**
- * boot.coffee
- */
-Game.Boot = function(game) {};
-
-Game.Boot.prototype = {
-  init: function() {
-    this.input.maxPointers = 1;
-  },
-  preload: function() {
-    console.log('Boot loading...');
-    this.load.image('preloaderImg', 'assets/preloader.gif');
-  },
-  create: function() {
-    this.state.start('Preload');
+Game.Boot = (function() {
+  function Boot(game) {
+    this.game = game;
   }
-};
+
+  Boot.prototype.preload = function() {
+    this.input.maxPointers = 1;
+    this.load.json('config', 'data/config.json');
+  };
+
+  Boot.prototype.create = function() {
+    var config;
+    config = this.cache.getJSON('config');
+    this.state.start('Preload');
+  };
+
+  return Boot;
+
+})();

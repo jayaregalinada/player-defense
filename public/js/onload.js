@@ -6,7 +6,7 @@
  */
 window.onload = function() {
   var game;
-  game = new Phaser.Game(window.screen.width, window.innerHeight, Phaser.CANVAS, '');
+  game = new Phaser.Game(window.screen.width, window.innerHeight, Phaser.CANVAS, 'GAME');
   game.state.add('Boot', Game.Boot);
   game.state.add('Preload', Game.Preload);
   game.state.add('Menu', Game.Menu);

@@ -2,7 +2,7 @@
 /**
  * Configuration
  */
-var $$$game, Game, Mobs, _controls, _player;
+var $$$game, Game, Mobs, _controls, _player, setConfig;
 
 Game = {};
 
@@ -59,7 +59,15 @@ $$$game.mobs = {};
 
 $$$game.characters = {};
 
+$$$game.conf = {};
+
+window.$$$game = $$$game;
+
 Mobs = {
   Enemy: {},
   Neutral: {}
+};
+
+setConfig = function(key, value) {
+  return window.$$$game.conf = value;
 };

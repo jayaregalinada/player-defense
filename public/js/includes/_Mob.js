@@ -15,7 +15,7 @@ Mob = (function() {
     this.game = game;
     this.name = name;
     this.spriteObj = spriteObj;
-    console.log('New Mob has been loaded', this.name);
+    return;
   }
 
   Mob.prototype.loadSprite = function() {
