@@ -1,0 +1,11 @@
+{
+    "background": {
+        "color": "#757575"
+    },
+    "assetPack": {
+        "directory": "data/",
+        "filename": "assets.json"
+    },
+    "assetPackPath": "data/assets.json",
+    "advanceTiming": true
+}

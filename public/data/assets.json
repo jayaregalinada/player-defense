@@ -1,0 +1,55 @@
+{
+    "preload": [
+        {
+            "type": "image",
+            "key": "preloaderImg",
+            "url": "assets/preload.gif"
+        }
+    ],
+    "menu": [
+        {
+            "type": "spritesheet",
+            "key": "button_play",
+            "url": "assets/buttons/play.png",
+            "frameWidth": 200,
+            "frameHeight": 50
+        }
+    ],
+    "characters": [
+        {
+            "type": "spritesheet",
+            "key": "char_kit",
+            "url": "assets/player/kit_from_firefox.png",
+            "frameHeight": 60,
+            "frameWidth": 42
+        },
+        {
+            "type": "spritesheet",
+            "key": "char_pacman",
+            "url": "assets/player/pacman_from_philippines.png",
+            "frameHeight": 60,
+            "frameWidth": 42
+        },
+        {
+            "type": "spritesheet",
+            "key": "char_wilber",
+            "url": "assets/player/wilber_from_gimp.png",
+            "frameHeight": 60,
+            "frameWidth": 42
+        }
+    ],
+    "map": [
+        {
+            "type": "tilemap",
+            "key": "map",
+            "url": "assets/map/2/map.json",
+            "data": null,
+            "format": "TILED_JSON"
+        },
+        {
+            "type": "image",
+            "key": "tileset",
+            "url": "assets/map/2/tileset.png"
+        }
+    ]
+}
